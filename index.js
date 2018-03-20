@@ -21,11 +21,22 @@ function parse (source, options) {
     return chunks.join('')
   }
 
+  function getValue (node) {
+    return chunks.slice(node.start, node.end).join('')
+  }
+
   Object.defineProperty(ast, 'replace', {
     configurable: false,
     enumerable: false,
     writable: false,
     value: replace
+  })
+
+  Object.defineProperty(ast, 'getValue', {
+    configurable: false,
+    enumerable: false,
+    writable: false,
+    value: getValue
   })
 
   Object.defineProperty(ast, 'generate', {

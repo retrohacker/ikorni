@@ -2,11 +2,14 @@ var ikorni = require('./index.js')
 var test = require('tape')
 
 test('should mutate single object', function (t) {
-  t.plan(1)
+  t.plan(3)
   var input = `require.ensure('a.js', function() {});`
   var output = `require.ensure('foo.js', function() {});`
   var ast = ikorni.parse(input)
-  ast.replace(ast.body[0].expression.arguments[0], `'foo.js'`)
+  var node = ast.body[0].expression.arguments[0]
+  t.equal(ast.getValue(node), `'a.js'`)
+  ast.replace(node, `'foo.js'`)
+  t.equal(ast.getValue(node), `'foo.js'`)
   t.equal(ast.generate(), output)
 })
 

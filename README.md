@@ -39,7 +39,14 @@ Update the source code representing the provided `node` in the AST with
 A few notes:
   * Strings must include quotes, example: `ast.replace(node, '\'foo.js\'')`.
   * `node` will be left unchanged. If you need to update the AST with your
-    changes, you will need to generate the new source and re-parse.
+    changes, you will need to generate the new source and re-parse. You can get
+    the current value of the node as it would be written out via `generate`
+    with `getValue`.
+
+### `var source = ast.getValue(node)`
+
+Returns the current source represented by `node`, based on the changes made by
+all of the `replace` invocations.
 
 ### `var source = ast.generate()`
 
