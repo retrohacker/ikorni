@@ -1,5 +1,7 @@
 # ikorni
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/retrohacker/ikorni.svg)](https://greenkeeper.io/)
+
 > [ikorni](https://en.wiktionary.org/wiki/%C3%ADkorni)
 
 A wrapper for [acorn](https://ghub.io/acorn) allowing for easy mutation of Node
